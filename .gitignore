@@ -17,4 +17,6 @@ target/
 .project
 .settings
 
+release.properties
+pom.xml.release*
 
