@@ -1,4 +1,4 @@
-FROM registry.opensource.zalan.do/stups/openjdk:8-29
+FROM registry.opensource.zalan.do/stups/openjdk:8-30
 
 COPY target/zmon-eventlog-service-1.0-SNAPSHOT.jar /zmon-eventlog-service.jar
 COPY target/scm-source.json /
