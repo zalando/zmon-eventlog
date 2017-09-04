@@ -1,9 +1,12 @@
 package de.zalando.zmon.eventlogservice;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import io.opentracing.util.GlobalTracer;
+import com.uber.jaeger.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +51,18 @@ public class EventlogController {
 
             storage.putEvent(e);
         }
+    }
+
+    @Bean
+    public io.opentracing.Tracer jaegerTracer() {
+
+        com.uber.jaeger.Configuration config = com.uber.jaeger.Configuration.fromEnv();
+
+        io.opentracing.Tracer tracer = config.getTracer();
+
+        GlobalTracer.register(tracer);
+
+        return tracer;
     }
 
     public static void main(String[] args) throws Exception {

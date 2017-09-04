@@ -31,7 +31,7 @@ public class PostgresqlStore implements EventStore {
 
     public PostgresqlStore(String host, int port, String database, String user, String password, String schema) {
         HikariConfig conf = new HikariConfig();
-        conf.setJdbcUrl("jdbc:postgresql://" + host + ":" + port + "/" + database);
+        conf.setJdbcUrl("jdbc:tracing:postgresql://" + host + ":" + port + "/" + database);
         conf.setUsername(user);
         conf.setPassword(password);
         conf.setMaximumPoolSize(12);
