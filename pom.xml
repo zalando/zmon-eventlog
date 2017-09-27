@@ -44,6 +44,11 @@
             <artifactId>flyway-core</artifactId>
             <version>4.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>io.opentracing.contrib</groupId>
+            <artifactId>opentracing-spring-web-autoconfigure</artifactId>
+            <version>0.0.10</version>
+        </dependency>
     </dependencies>
 
     <build>
